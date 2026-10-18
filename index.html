@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KPK Study Hub - Textbooks, Notes & Past Papers</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Splash Screen -->
+    <div id="splashScreen" class="splash-screen">
+        <div class="splash-content">
+            <i class="fa-solid fa-graduation-cap splash-icon"></i>
+            <h1>KPK Study Hub</h1>
+            <p>Your Digital Education Partner</p>
+            <div class="loader"></div>
+        </div>
+    </div>
+
+    <!-- Main App Container -->
+    <div id="mainApp" class="main-app hidden">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="logo-area">
+                <i class="fa-solid fa-graduation-cap logo-icon"></i>
+                <h2>KPK Study Hub</h2>
+            </div>
+            <div class="header-actions">
+                <!-- Theme Toggle Button with Eye Icon -->
+                <button onclick="toggleTheme()" class="icon-btn" title="Toggle Dark/Light Mode">
+                    <i class="fa-solid fa-eye" id="themeIcon"></i>
+                </button>
+                <button onclick="showDownloadsView()" class="icon-btn" title="My Downloads">
+                    <i class="fa-solid fa-download"></i>
+                </button>
+                <a href="menu.html" class="icon-btn" title="Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </a>
+            </div>
+        </header>
+
+        <!-- Search Bar -->
+        <div class="search-container">
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="searchInput" placeholder="Search Class, Subject, Notes..." onkeyup="filterCards()">
+            </div>
+        </div>
+
+        <!-- Home Main View -->
+        <main class="content-container" id="homeView">
+            
+            <!-- Class 1 to 12 Textbooks & Notes Section -->
+            <h3 class="section-title">Class 1 to 12 Textbooks & Notes</h3>
+            <div class="grid-layout" id="cardGrid">
+                <!-- Dynamically Generated Class Cards (Class 1 to 12) -->
+            </div>
+
+            <!-- All KPK Board Past Papers Main Card -->
+            <div class="main-featured-card" onclick="showPastPapersCategory()">
+                <div class="featured-badge">KPK Boards</div>
+                <div class="featured-content">
+                    <i class="fa-solid fa-scroll featured-icon"></i>
+                    <div>
+                        <h3>All KPK Board Past Papers</h3>
+                        <p>Class 9th, 10th, 1st Year & 2nd Year Solved Papers</p>
+                    </div>
+                </div>
+                <i class="fa-solid fa-chevron-right arrow-icon"></i>
+            </div>
+
+        </main>
+
+        <!-- Past Papers Custom Screen -->
+        <div class="content-container hidden" id="pastPapersView">
+            <div class="subject-header">
+                <button onclick="goBackToHome()" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back</button>
+                <h3>All KPK Board Past Papers</h3>
+            </div>
+            <div class="past-papers-grid" id="pastPapersGrid">
+                <!-- Class 9th Past Paper Card -->
+                <div class="paper-box paper-9th" onclick="downloadPDF('Class 9th All Past Papers', 'https://drive.google.com/uc?export=download&id=1WZXaUTy30V38h8B6ozxqt5rPbWwx8VfJ')">
+                    <i class="fa-solid fa-file-arrow-down paper-icon"></i>
+                    <div class="paper-details">
+                        <h4>Class 9th Past Papers</h4>
+                        <p>All Subjects PDF Download</p>
+                    </div>
+                    <span class="dl-badge">Download</span>
+                </div>
+
+                <!-- Class 10th Past Paper Card -->
+                <div class="paper-box paper-10th" onclick="downloadPDF('Class 10th All Past Papers', 'https://drive.google.com/uc?export=download&id=1WbQkHwi7hUS7RTi9zt8mf8V3QEDgMMfd')">
+                    <i class="fa-solid fa-file-arrow-down paper-icon"></i>
+                    <div class="paper-details">
+                        <h4>Class 10th Past Papers</h4>
+                        <p>All Subjects PDF Download</p>
+                    </div>
+                    <span class="dl-badge">Download</span>
+                </div>
+
+                <!-- 1st Year Past Paper Card -->
+                <div class="paper-box paper-11th" onclick="downloadPDF('1st Year All Past Papers', 'https://drive.google.com/uc?export=download&id=1Y9kMFSmB3A0oUGC2JQnjF7Jd9SnbD-GC')">
+                    <i class="fa-solid fa-file-arrow-down paper-icon"></i>
+                    <div class="paper-details">
+                        <h4>1st Year Past Papers</h4>
+                        <p>All Subjects PDF Download</p>
+                    </div>
+                    <span class="dl-badge">Download</span>
+                </div>
+
+                <!-- 2nd Year Past Paper Card -->
+                <div class="paper-box paper-12th" onclick="downloadPDF('2nd Year All Past Papers', 'https://drive.google.com/uc?export=download&id=1WfPiLMfuh9DyIa7rhIKj-1M1LA8CCbFl')">
+                    <i class="fa-solid fa-file-arrow-down paper-icon"></i>
+                    <div class="paper-details">
+                        <h4>2nd Year Past Papers</h4>
+                        <p>All Subjects PDF Download</p>
+                    </div>
+                    <span class="dl-badge">Download</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Subjects View Screen -->
+        <div class="content-container hidden" id="subjectsView">
+            <div class="subject-header">
+                <button onclick="goBackToHome()" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back</button>
+                <h3 id="selectedCategoryTitle">Select Subject</h3>
+            </div>
+            <div class="grid-layout" id="subjectGrid">
+                <!-- Subject Cards Loaded Here -->
+            </div>
+        </div>
+
+        <!-- Downloads Manager View -->
+        <div class="content-container hidden" id="downloadsView">
+            <div class="subject-header">
+                <button onclick="goBackToHome()" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back</button>
+                <h3>My Downloaded PDFs</h3>
+            </div>
+            <div id="downloadsList" class="downloads-list"></div>
+        </div>
+
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

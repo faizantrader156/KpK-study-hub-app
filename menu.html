@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu & Support - KPK Study Hub</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="menu-body">
+
+    <!-- Menu Header -->
+    <header class="menu-header">
+        <a href="index.html" class="menu-back-btn"><i class="fa-solid fa-arrow-left"></i></a>
+        <h2>Menu & Support</h2>
+    </header>
+
+    <!-- Menu Content -->
+    <main class="menu-content">
+        
+        <!-- Academic Resources Card -->
+        <section class="menu-card">
+            <div class="card-header-text">
+                <h3>Academic Resources</h3>
+                <p>Enhance your learning experience</p>
+            </div>
+            <div class="menu-list-item" onclick="openWhatsAppDeveloper()">
+                <div class="item-left">
+                    <div class="icon-avatar green-avatar">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </div>
+                    <span>Contact Developer on WhatsApp</span>
+                </div>
+                <i class="fa-solid fa-chevron-right arrow-muted"></i>
+            </div>
+        </section>
+
+        <!-- App Actions Card -->
+        <section class="menu-card">
+            <div class="card-header-text">
+                <h3>App Actions</h3>
+                <p>Manage your app experience</p>
+            </div>
+            
+            <div class="menu-list-item" onclick="openShareModal()">
+                <div class="item-left">
+                    <div class="icon-avatar blue-avatar">
+                        <i class="fa-solid fa-share-nodes"></i>
+                    </div>
+                    <span>Share App</span>
+                </div>
+                <i class="fa-solid fa-chevron-right arrow-muted"></i>
+            </div>
+
+            <div class="menu-list-item" onclick="openRateModal()">
+                <div class="item-left">
+                    <div class="icon-avatar orange-avatar">
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <span>Rate App</span>
+                </div>
+                <i class="fa-solid fa-chevron-right arrow-muted"></i>
+            </div>
+
+            <div class="menu-list-item" onclick="openMoreAppsModal()">
+                <div class="item-left">
+                    <div class="icon-avatar purple-avatar">
+                        <i class="fa-solid fa-border-all"></i>
+                    </div>
+                    <span>More Apps</span>
+                </div>
+                <i class="fa-solid fa-chevron-right arrow-muted"></i>
+            </div>
+
+            <div class="menu-list-item" onclick="openFeedbackModal()">
+                <div class="item-left">
+                    <div class="icon-avatar teal-avatar">
+                        <i class="fa-solid fa-envelope"></i>
+                    </div>
+                    <span>Send Feedback</span>
+                </div>
+                <i class="fa-solid fa-chevron-right arrow-muted"></i>
+            </div>
+        </section>
+
+        <!-- Legal & Policies Card -->
+        <section class="menu-card">
+            <div class="card-header-text">
+                <h3>Legal & Policies</h3>
+                <p>Important information</p>
+            </div>
+
+            <div class="menu-list-item" onclick="openPrivacyModal()">
+                <div class="item-left">
+                    <div class="icon-avatar red-avatar">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <span>Privacy Policy</span>
+                </div>
+                <i class="fa-solid fa-chevron-right arrow-muted"></i>
+            </div>
+
+            <div class="menu-list-item" onclick="openDisclaimerModal()">
+                <div class="item-left">
+                    <div class="icon-avatar darkblue-avatar">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                    </div>
+                    <span>Disclaimer</span>
+                </div>
+                <i class="fa-solid fa-chevron-right arrow-muted"></i>
+            </div>
+        </section>
+
+        <!-- Developer Credit Card -->
+        <div class="developer-credit-card">
+            <h4>KPK Study Hub</h4>
+            <p>Developed with <i class="fa-solid fa-heart" style="color:#ef4444;"></i> by Faizan Ahmad</p>
+            <span class="version-tag">Version 1.0.0</span>
+        </div>
+
+    </main>
+
+    <!-- Link App Logic so Menu buttons work -->
+    <script src="app.js"></script>
+</body>
+</html>
