@@ -677,3 +677,97 @@ body {
 .star-icon.selected-star {
     color: #f59e0b;
 }
+
+/* --- Direct PDF Open & LocalStorage History Extensions --- */
+
+/* Direct Open PDF Button Styling */
+.btn-open {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background-color: #3498db;
+    color: #ffffff !important;
+    text-decoration: none;
+    padding: 7px 15px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: background 0.2s ease;
+}
+
+.btn-open:hover {
+    background-color: #2980b9;
+}
+
+/* History / Downloaded Section Cards */
+.history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.history-card {
+    background: #ffffff;
+    padding: 12px 16px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    border-left: 4px solid #3498db;
+}
+
+.history-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.pdf-red-icon {
+    font-size: 1.8rem;
+    color: #e74c3c;
+}
+
+.history-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-open-sm {
+    background: #3498db;
+    color: #fff !important;
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.btn-delete-sm {
+    background: #e74c3c;
+    color: #fff;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-delete-sm:hover {
+    background: #c0392b;
+}
+
+.empty-msg {
+    text-align: center;
+    color: #7f8c8d;
+    padding: 40px 20px;
+}
+
+.empty-msg i {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #bdc3c7;
+}

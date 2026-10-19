@@ -298,3 +298,65 @@ function filterCards() {
         }
     });
 }
+
+
+// --- LocalStorage PDF History & Open/Delete Extensions ---
+
+// Function to save opened PDF to LocalStorage History
+function saveToHistory(pdfName, pdfUrl) {
+    let history = JSON.parse(localStorage.getItem('kpk_pdf_history')) || [];
+    const dateStr = new Date().toLocaleDateString();
+
+    // Avoid Duplicate items
+    const exists = history.some(item => item.url === pdfUrl);
+    if (!exists) {
+        history.push({ name: pdfName, url: pdfUrl, date: dateStr });
+        localStorage.setItem('kpk_pdf_history', JSON.stringify(history));
+    }
+}
+
+// Function to render LocalStorage History on screen
+function loadHistory() {
+    const container = document.getElementById('historyContainer');
+    if (!container) return;
+
+    let history = JSON.parse(localStorage.getItem('kpk_pdf_history')) || [];
+    container.innerHTML = '';
+
+    if (history.length === 0) {
+        container.innerHTML = `
+            <div class="empty-msg">
+                <i class="fa-solid fa-folder-open"></i>
+                <p>No opened or downloaded PDFs yet.</p>
+            </div>
+        `;
+        return;
+    }
+
+    history.forEach((item, index) => {
+        const itemCard = document.createElement('div');
+        itemCard.className = 'history-card';
+        itemCard.innerHTML = `
+            <div class="history-info">
+                <i class="fa-solid fa-file-pdf pdf-red-icon"></i>
+                <div>
+                    <h5>${item.name}</h5>
+                    <small>Opened on ${item.date}</small>
+                </div>
+            </div>
+            <div class="history-actions">
+                <a href="${item.url}" target="_blank" class="btn-open-sm">Open</a>
+                <button onclick="deleteHistoryItem(${index})" class="btn-delete-sm">Delete</button>
+            </div>
+        `;
+        container.appendChild(itemCard);
+    });
+}
+
+// Function to delete an item from LocalStorage History
+function deleteHistoryItem(index) {
+    let history = JSON.parse(localStorage.getItem('kpk_pdf_history')) || [];
+    history.splice(index, 1);
+    localStorage.setItem('kpk_pdf_history', JSON.stringify(history));
+    loadHistory();
+}
