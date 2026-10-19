@@ -1,362 +1,300 @@
-/* ==========================================================================
-   KPK Study Hub - Complete Master Application Logic
-   ========================================================================== */
+const classSubjectsData = {
+    // Classes 1st to 8th
+    class1: [
+        { name: "Nazira Quran", icon: "fa-quran", link: null },
+        { name: "Mathematics", icon: "fa-calculator", link: null },
+        { name: "Drawing", icon: "fa-palette", link: null },
+        { name: "English", icon: "fa-book-alphabet", link: null },
+        { name: "Pashto", icon: "fa-language", link: null },
+        { name: "Islamiat", icon: "fa-kaaba", link: null }
+    ],
+    class2: [
+        { name: "Nazira Quran", icon: "fa-quran", link: null },
+        { name: "Mathematics", icon: "fa-calculator", link: null },
+        { name: "English", icon: "fa-book", link: null },
+        { name: "Urdu", icon: "fa-book-open", link: null },
+        { name: "General Knowledge", icon: "fa-globe", link: null },
+        { name: "Islamiat", icon: "fa-kaaba", link: null }
+    ],
+    class3: [
+        { name: "Nazira Quran", icon: "fa-quran", link: null },
+        { name: "Mathematics", icon: "fa-calculator", link: null },
+        { name: "English", icon: "fa-book", link: null },
+        { name: "Urdu", icon: "fa-book-open", link: null },
+        { name: "General Science", icon: "fa-flask", link: null },
+        { name: "Islamiat", icon: "fa-kaaba", link: null }
+    ],
+    class4: [
+        { name: "Nazira Quran", icon: "fa-quran", link: null },
+        { name: "Mathematics", icon: "fa-calculator", link: null },
+        { name: "English", icon: "fa-book", link: null },
+        { name: "Urdu", icon: "fa-book-open", link: null },
+        { name: "General Science", icon: "fa-flask", link: null },
+        { name: "Social Studies", icon: "fa-landmark", link: null }
+    ],
+    class5: [
+        { name: "Nazira Quran", icon: "fa-quran", link: null },
+        { name: "Mathematics", icon: "fa-calculator", link: null },
+        { name: "English", icon: "fa-book", link: null },
+        { name: "Urdu", icon: "fa-book-open", link: null },
+        { name: "General Science", icon: "fa-flask", link: null },
+        { name: "Social Studies", icon: "fa-landmark", link: null }
+    ],
+    class6: [
+        { name: "Mathematics", icon: "fa-calculator", link: null },
+        { name: "General Science", icon: "fa-flask", link: null },
+        { name: "English", icon: "fa-book", link: null },
+        { name: "Urdu", icon: "fa-book-open", link: null },
+        { name: "History & Geography", icon: "fa-earth-asia", link: null },
+        { name: "Computer Science", icon: "fa-laptop-code", link: null }
+    ],
+    class7: [
+        { name: "Mathematics", icon: "fa-calculator", link: null },
+        { name: "General Science", icon: "fa-flask", link: null },
+        { name: "English", icon: "fa-book", link: null },
+        { name: "Urdu", icon: "fa-book-open", link: null },
+        { name: "History & Geography", icon: "fa-earth-asia", link: null },
+        { name: "Computer Science", icon: "fa-laptop-code", link: null }
+    ],
+    class8: [
+        { name: "Mathematics", icon: "fa-calculator", link: null },
+        { name: "General Science", icon: "fa-flask", link: null },
+        { name: "English", icon: "fa-book", link: null },
+        { name: "Urdu", icon: "fa-book-open", link: null },
+        { name: "History & Geography", icon: "fa-earth-asia", link: null },
+        { name: "Computer Science", icon: "fa-laptop-code", link: null }
+    ],
 
-const classesData = [
-    { id: 1, name: "Class 1", category: "primary", booksCount: 5, notesCount: 5 },
-    { id: 2, name: "Class 2", category: "primary", booksCount: 5, notesCount: 5 },
-    { id: 3, name: "Class 3", category: "primary", booksCount: 5, notesCount: 5 },
-    { id: 4, name: "Class 4", category: "primary", booksCount: 5, notesCount: 5 },
-    { id: 5, name: "Class 5", category: "primary", booksCount: 5, notesCount: 5 },
-    { id: 6, name: "Class 6", category: "middle", booksCount: 6, notesCount: 6 },
-    { id: 7, name: "Class 7", category: "middle", booksCount: 6, notesCount: 6 },
-    { id: 8, name: "Class 8", category: "middle", booksCount: 6, notesCount: 6 },
-    { id: 9, name: "Class 9", category: "matric", booksCount: 7, notesCount: 7 },
-    { id: 10, name: "Class 10", category: "matric", booksCount: 7, notesCount: 7 },
-    { id: 11, name: "1st Year", category: "intermediate", booksCount: 6, notesCount: 6 },
-    { id: 12, name: "2nd Year", category: "intermediate", booksCount: 6, notesCount: 6 }
-];
+    // Class 9th Books (Bio & Chem Active, Physics & Math set to Coming Soon)
+    class9_books: [
+        { name: "Biology", icon: "fa-dna", link: "https://drive.google.com/file/d/1WHvEVI4JiDL6yj_tXZQzzcxQmMsZynyL/view" },
+        { name: "Chemistry", icon: "fa-flask", link: "https://drive.google.com/file/d/1WPzCc9Vq1ZgmsIfCZIMrw3BbDzSEKTFp/view" },
+        { name: "Physics", icon: "fa-atom", link: null },
+        { name: "Mathematics", icon: "fa-square-root-variable", link: null },
+        { name: "Computer Science", icon: "fa-laptop-code", link: null },
+        { name: "English", icon: "fa-book", link: null }
+    ],
+    class9_notes: [
+        { name: "Biology Notes", icon: "fa-file-lines", link: null },
+        { name: "Chemistry Notes", icon: "fa-file-lines", link: null },
+        { name: "Physics Notes", icon: "fa-file-lines", link: null },
+        { name: "Mathematics Notes", icon: "fa-file-lines", link: null },
+        { name: "English Notes", icon: "fa-file-lines", link: null }
+    ],
 
-const subjectsData = {
-    "Class 9 Books": [
-        { name: "Mathematics (Class 9)", desc: "KPK Board Textbook PDF", fileId: "1WZXaUTy30V38h8B6ozxqt5rPbWwx8VfJ" },
-        { name: "Physics (Class 9)", desc: "KPK Board Textbook PDF", fileId: "1WZXaUTy30V38h8B6ozxqt5rPbWwx8VfJ" }
+    // All Past Papers Card List
+    past_papers: [
+        { name: "Class 9th Past Papers", icon: "fa-file-pdf", link: "https://drive.google.com/file/d/1WZXaUTy30V38h8B6ozxqt5rPbWwx8VfJ/view?usp=drivesdk" },
+        { name: "Class 10th Past Papers", icon: "fa-file-pdf", link: "https://drive.google.com/file/d/1WbQkHwi7hUS7RTi9zt8mf8V3QEDgMMfd/view?usp=drivesdk" },
+        { name: "1st Year Past Papers", icon: "fa-file-pdf", link: "https://drive.google.com/file/d/1Y9kMFSmB3A0oUGC2JQnjF7Jd9SnbD-GC/view?usp=drivesdk" },
+        { name: "2nd Year Past Papers", icon: "fa-file-pdf", link: "https://drive.google.com/file/d/1WfPiLMfuh9DyIa7rhIKj-1M1LA8CCbFl/view?usp=drivesdk" }
     ],
-    "Class 9 Notes": [
-        { name: "Math Solved Notes (Class 9)", desc: "Chapter wise guides", fileId: "1WZXaUTy30V38h8B6ozxqt5rPbWwx8VfJ" }
+
+    // Classes 10th, 11th, 12th
+    class10_books: [
+        { name: "Biology", icon: "fa-dna", link: null },
+        { name: "Chemistry", icon: "fa-flask", link: null },
+        { name: "Physics", icon: "fa-atom", link: null },
+        { name: "Mathematics", icon: "fa-square-root-variable", link: null },
+        { name: "English", icon: "fa-book", link: null }
     ],
-    "Class 10 Books": [
-        { name: "Mathematics (Class 10)", desc: "KPK Board Textbook PDF", fileId: "1WbQkHwi7hUS7RTi9zt8mf8V3QEDgMMfd" }
+    class10_notes: [
+        { name: "Biology Notes", icon: "fa-file-lines", link: null },
+        { name: "Chemistry Notes", icon: "fa-file-lines", link: null },
+        { name: "Physics Notes", icon: "fa-file-lines", link: null },
+        { name: "Mathematics Notes", icon: "fa-file-lines", link: null }
     ],
-    "1st Year Books": [
-        { name: "Mathematics (1st Year)", desc: "KPK Board Textbook PDF", fileId: "1Y9kMFSmB3A0oUGC2JQnjF7Jd9SnbD-GC" }
+    class11_books: [
+        { name: "Biology", icon: "fa-dna", link: null },
+        { name: "Chemistry", icon: "fa-flask", link: null },
+        { name: "Physics", icon: "fa-atom", link: null },
+        { name: "Mathematics", icon: "fa-square-root-variable", link: null },
+        { name: "English", icon: "fa-book", link: null }
     ],
-    "2nd Year Books": [
-        { name: "Mathematics (2nd Year)", desc: "KPK Board Textbook PDF", fileId: "1WfPiLMfuh9DyIa7rhIKj-1M1LA8CCbFl" }
+    class11_notes: [
+        { name: "Biology Notes", icon: "fa-file-lines", link: null },
+        { name: "Chemistry Notes", icon: "fa-file-lines", link: null },
+        { name: "Physics Notes", icon: "fa-file-lines", link: null },
+        { name: "Mathematics Notes", icon: "fa-file-lines", link: null }
+    ],
+    class12_books: [
+        { name: "Biology", icon: "fa-dna", link: null },
+        { name: "Chemistry", icon: "fa-flask", link: null },
+        { name: "Physics", icon: "fa-atom", link: null },
+        { name: "Mathematics", icon: "fa-square-root-variable", link: null },
+        { name: "English", icon: "fa-book", link: null }
+    ],
+    class12_notes: [
+        { name: "Biology Notes", icon: "fa-file-lines", link: null },
+        { name: "Chemistry Notes", icon: "fa-file-lines", link: null },
+        { name: "Physics Notes", icon: "fa-file-lines", link: null },
+        { name: "Mathematics Notes", icon: "fa-file-lines", link: null }
     ]
 };
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
-        let splash = document.getElementById('splashScreen');
-        let mainApp = document.getElementById('mainApp');
-        if (splash) splash.classList.add('hidden');
-        if (mainApp) mainApp.classList.remove('hidden');
-    }, 1000);
+        const splash = document.getElementById('splashScreen');
+        if (splash) splash.classList.add('fade-out');
+    }, 2500);
 
-    let savedTheme = localStorage.getItem('appTheme');
-    let icon = document.getElementById('themeIcon');
-    if (savedTheme === 'dark') {
-        document.body.classList.add('dark-mode-active');
-        if (icon) icon.className = 'fa-solid fa-eye-slash';
+    if (!navigator.onLine) {
+        showCustomAlert("No Internet Connection", "KPK Study Hub requires an active internet connection to load and open study materials.");
     }
 
-    renderHomeCards();
+    loadHistory();
 });
 
-function renderHomeCards() {
-    let grid = document.getElementById('cardGrid');
-    if (!grid) return;
+function toggleAppTheme() {
+    const body = document.body;
+    const themeIcon = document.getElementById('themeIcon');
     
-    grid.innerHTML = '';
-    classesData.forEach(cls => {
-        grid.innerHTML += `
-            <div class="card" onclick="openSubjects('${cls.name} Books', '${cls.category}')">
-                <span class="card-badge">${cls.category.toUpperCase()}</span>
-                <i class="fa-solid fa-book card-icon"></i>
-                <div class="card-body">
-                    <h4>${cls.name} Books</h4>
-                    <p>KPK Board Textbooks</p>
-                </div>
-            </div>
-        `;
-        grid.innerHTML += `
-            <div class="card" onclick="openSubjects('${cls.name} Notes', 'notes')">
-                <span class="card-badge notes-badge">Notes</span>
-                <i class="fa-solid fa-file-pen card-icon" style="color: #059669;"></i>
-                <div class="card-body">
-                    <h4>${cls.name} Notes</h4>
-                    <p>Solved Exercises</p>
-                </div>
-            </div>
-        `;
-    });
-}
-
-function showPastPapersCategory() {
-    document.getElementById('homeView').classList.add('hidden');
-    document.getElementById('downloadsView').classList.add('hidden');
-    document.getElementById('subjectsView').classList.add('hidden');
-    document.getElementById('pastPapersView').classList.remove('hidden');
-}
-
-function showDownloadsView() {
-    document.getElementById('homeView').classList.add('hidden');
-    document.getElementById('pastPapersView').classList.add('hidden');
-    document.getElementById('subjectsView').classList.add('hidden');
-    document.getElementById('downloadsView').classList.remove('hidden');
-    renderDownloadsList();
-}
-
-function goBackToHome() {
-    document.getElementById('homeView').classList.remove('hidden');
-    document.getElementById('pastPapersView').classList.add('hidden');
-    document.getElementById('subjectsView').classList.add('hidden');
-    document.getElementById('downloadsView').classList.add('hidden');
-}
-
-function openSubjects(title, category) {
-    document.getElementById('homeView').classList.add('hidden');
-    document.getElementById('pastPapersView').classList.add('hidden');
-    document.getElementById('downloadsView').classList.add('hidden');
-    document.getElementById('subjectsView').classList.remove('hidden');
-    
-    let titleEl = document.getElementById('selectedCategoryTitle');
-    if (titleEl) titleEl.innerText = title;
-    
-    let subGrid = document.getElementById('subjectGrid');
-    subGrid.innerHTML = '';
-    
-    let list = subjectsData[title];
-
-    if (!list || list.length === 0) {
-        subGrid.innerHTML = `
-            <div class="subject-card" style="justify-content: center; text-align: center; padding: 30px;">
-                <div class="subject-body">
-                    <h4>Coming Soon</h4>
-                    <p>Official PDFs for ${title} will be uploaded soon!</p>
-                </div>
-            </div>
-        `;
-        return;
-    }
-
-    list.forEach(item => {
-        subGrid.innerHTML += `
-            <div class="subject-card" onclick="downloadPDF('${item.name}', 'https://drive.google.com/uc?export=download&id=${item.fileId}')">
-                <i class="fa-solid fa-file-pdf subject-icon"></i>
-                <div class="subject-body">
-                    <h4>${item.name}</h4>
-                    <p>${item.desc}</p>
-                </div>
-                <span class="subject-badge">Download</span>
-            </div>
-        `;
-    });
-}
-
-function downloadPDF(fileName, fileUrl) {
-    let downloads = JSON.parse(localStorage.getItem('kpkDownloads')) || [];
-    let dateStr = new Date().toLocaleDateString();
-    
-    if (!downloads.some(d => d.name === fileName)) {
-        downloads.push({ name: fileName, url: fileUrl, date: dateStr });
-        localStorage.setItem('kpkDownloads', JSON.stringify(downloads));
-    }
-
-    window.open(fileUrl, '_blank');
-}
-
-function renderDownloadsList() {
-    let listContainer = document.getElementById('downloadsList');
-    if (!listContainer) return;
-    
-    let downloads = JSON.parse(localStorage.getItem('kpkDownloads')) || [];
-    
-    if (downloads.length === 0) {
-        listContainer.innerHTML = `<p style="text-align:center; color:var(--text-muted); padding:20px;">No downloaded PDFs yet.</p>`;
-        return;
-    }
-
-    listContainer.innerHTML = '';
-    downloads.forEach((item, index) => {
-        listContainer.innerHTML += `
-            <div class="download-item">
-                <div class="download-info">
-                    <i class="fa-solid fa-file-pdf"></i>
-                    <div>
-                        <h4>${item.name}</h4>
-                        <p>Downloaded on ${item.date}</p>
-                    </div>
-                </div>
-                <div class="download-actions">
-                    <button class="download-action-btn btn-open" onclick="window.open('${item.url}', '_blank')">Open</button>
-                    <button class="download-action-btn btn-delete" onclick="deleteDownload(${index})">Delete</button>
-                </div>
-            </div>
-        `;
-    });
-}
-
-function deleteDownload(index) {
-    let downloads = JSON.parse(localStorage.getItem('kpkDownloads')) || [];
-    downloads.splice(index, 1);
-    localStorage.setItem('kpkDownloads', JSON.stringify(downloads));
-    renderDownloadsList();
-}
-
-function toggleTheme() {
-    document.body.classList.toggle('dark-mode-active');
-    let icon = document.getElementById('themeIcon');
-    
-    if (document.body.classList.contains('dark-mode-active')) {
-        if (icon) icon.className = 'fa-solid fa-eye-slash';
-        localStorage.setItem('appTheme', 'dark');
+    if (body.classList.contains('dark-theme')) {
+        body.classList.remove('dark-theme');
+        body.classList.add('light-theme');
+        themeIcon.className = "fa-solid fa-moon";
     } else {
-        if (icon) icon.className = 'fa-solid fa-eye';
-        localStorage.setItem('appTheme', 'light');
+        body.classList.remove('light-theme');
+        body.classList.add('dark-theme');
+        themeIcon.className = "fa-solid fa-eye";
     }
 }
 
-// Menu Functions
-function openWhatsAppDeveloper() {
-    let phone = "923489573662";
-    let message = "Hello Faizan Ahmad, I am using KPK Study Hub app and want to connect with you.";
-    window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
-}
-
-function openShareModal() {
-    showCustomPopup("Share KPK Study Hub", "Help your friends and class fellows by sharing this ultimate study app:\n\nKPK Study Hub - Textbooks, Notes & Past Papers!");
-}
-
-function openRateModal() {
-    let modalHTML = `
-        <div class="custom-modal" id="popupModal">
-            <div class="modal-box">
-                <h3>Rate Our App</h3>
-                <p>Tap a star to rate KPK Study Hub:</p>
-                <div class="star-rating-container">
-                    <i class="fa-solid fa-star star-icon" onclick="rateStar(1)"></i>
-                    <i class="fa-solid fa-star star-icon" onclick="rateStar(2)"></i>
-                    <i class="fa-solid fa-star star-icon" onclick="rateStar(3)"></i>
-                    <i class="fa-solid fa-star star-icon" onclick="rateStar(4)"></i>
-                    <i class="fa-solid fa-star star-icon" onclick="rateStar(5)"></i>
-                </div>
-                <button class="modal-close-btn" onclick="closeModal()">Submit Rating</button>
-            </div>
-        </div>
-    `;
-    document.body.insertAdjacentHTML('beforeend', modalHTML);
-}
-
-function rateStar(rating) {
-    let stars = document.querySelectorAll('.star-icon');
-    stars.forEach((star, idx) => {
-        if (idx < rating) {
-            star.classList.add('selected-star');
-        } else {
-            star.classList.remove('selected-star');
-        }
-    });
-}
-
-function openMoreAppsModal() {
-    showCustomPopup("More Apps", "Explore more educational Android applications developed by Faizan Ahmad coming soon on the Play Store!");
-}
-
-function openFeedbackModal() {
-    let email = "Faizanaahmad091@gmail.com";
-    window.location.href = `mailto:${email}?subject=KPK Study Hub Feedback&body=Assalam-o-Alaikum Faizan,`;
-}
-
-function openPrivacyModal() {
-    showCustomPopup("Privacy Policy", "KPK Study Hub respects your privacy. This application does not collect personal data. All textbook downloads are securely fetched from official Google Drive storage links.");
-}
-
-function openDisclaimerModal() {
-    showCustomPopup("Disclaimer", "All textbooks, notes, and past papers provided in this app are sourced from public educational boards of KPK for student assistance and non-commercial educational purposes.");
-}
-
-function showCustomPopup(title, message) {
-    let modalHTML = `
-        <div class="custom-modal" id="popupModal">
-            <div class="modal-box">
-                <h3>${title}</h3>
-                <p>${message}</p>
-                <button class="modal-close-btn" onclick="closeModal()">OK</button>
-            </div>
-        </div>
-    `;
-    document.body.insertAdjacentHTML('beforeend', modalHTML);
-}
-
-function closeModal() {
-    let modal = document.getElementById('popupModal');
-    if (modal) modal.remove();
-}
-
-function filterCards() {
-    let query = document.getElementById('searchInput').value.toLowerCase();
-    let cards = document.querySelectorAll('#cardGrid .card');
+function showCategory(catKey) {
+    hideAllSections();
+    const container = document.getElementById('subjectViewContainer');
+    const grid = document.getElementById('subjectGridCards');
+    const title = document.getElementById('subjectSectionTitle');
     
-    cards.forEach(card => {
-        let text = card.innerText.toLowerCase();
-        if (text.includes(query)) {
-            card.style.display = "block";
+    grid.innerHTML = "";
+    title.innerHTML = `<i class="fa-solid fa-book-open"></i> ${catKey.toUpperCase().replace('_', ' - ')}`;
+
+    const list = classSubjectsData[catKey] || [];
+
+    list.forEach((item, index) => {
+        let name = item.name;
+        let icon = item.icon || 'fa-book';
+        let link = item.link;
+
+        let card = document.createElement('div');
+        card.className = "subject-card";
+        
+        if (link) {
+            card.onclick = () => openPDF(name, link);
+            let bgClass = catKey === 'past_papers' ? `past-paper-bg${(index % 4) + 1}` : '';
+            card.innerHTML = `
+                <div class="sc-img ${bgClass}"><i class="fa-solid ${icon}"></i><span class="sc-tag">PDF</span></div>
+                <div class="sc-title">${name}</div>
+            `;
         } else {
-            card.style.display = "none";
+            card.onclick = () => showCustomAlert("Coming Soon!", name + " PDF is currently being prepared and will be available shortly.");
+            card.innerHTML = `
+                <div class="sc-img" style="color:#b2bec3;"><i class="fa-solid ${icon}"></i><span class="sc-tag sc-tag-soon">SOON</span></div>
+                <div class="sc-title">${name}</div>
+            `;
         }
+        grid.appendChild(card);
     });
+
+    container.classList.remove('hidden-section');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
+function openPDF(title, url) {
+    saveToHistory(title, url);
+    window.open(url, '_blank');
+}
 
-// --- LocalStorage PDF History & Open/Delete Extensions ---
+function showCustomAlert(title, message) {
+    document.getElementById('alertTitle').innerText = title;
+    document.getElementById('alertMessage').innerText = message;
+    document.getElementById('alertModal').classList.remove('hidden-modal');
+}
 
-// Function to save opened PDF to LocalStorage History
-function saveToHistory(pdfName, pdfUrl) {
+function closeAlertModal() {
+    document.getElementById('alertModal').classList.add('hidden-modal');
+}
+
+function showMainHome() {
+    hideAllSections();
+    document.getElementById('mainHomeSection').classList.remove('hidden-section');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function showHistorySection() {
+    hideAllSections();
+    loadHistory();
+    document.getElementById('historySection').classList.remove('hidden-section');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function hideAllSections() {
+    const sections = document.querySelectorAll('.content-section');
+    sections.forEach(sec => sec.classList.add('hidden-section'));
+}
+
+function toggleSidebarMenu() {
+    const sidebar = document.getElementById('sidebarMenu');
+    sidebar.classList.toggle('hidden-menu');
+}
+
+function saveToHistory(title, url) {
     let history = JSON.parse(localStorage.getItem('kpk_pdf_history')) || [];
-    const dateStr = new Date().toLocaleDateString();
-
-    // Avoid Duplicate items
-    const exists = history.some(item => item.url === pdfUrl);
-    if (!exists) {
-        history.push({ name: pdfName, url: pdfUrl, date: dateStr });
-        localStorage.setItem('kpk_pdf_history', JSON.stringify(history));
-    }
+    history = history.filter(item => item.url !== url);
+    
+    const newEntry = { title: title, url: url, date: new Date().toLocaleDateString() };
+    history.unshift(newEntry);
+    localStorage.setItem('kpk_pdf_history', JSON.stringify(history));
 }
 
-// Function to render LocalStorage History on screen
 function loadHistory() {
-    const container = document.getElementById('historyContainer');
-    if (!container) return;
-
+    const historyList = document.getElementById('historyList');
     let history = JSON.parse(localStorage.getItem('kpk_pdf_history')) || [];
-    container.innerHTML = '';
-
+    
     if (history.length === 0) {
-        container.innerHTML = `
-            <div class="empty-msg">
-                <i class="fa-solid fa-folder-open"></i>
-                <p>No opened or downloaded PDFs yet.</p>
-            </div>
-        `;
+        historyList.innerHTML = `<p style="text-align:center; padding:30px; color:#aaa;">No opened or downloaded PDFs in history yet.</p>`;
         return;
     }
-
+    
+    let html = '';
     history.forEach((item, index) => {
-        const itemCard = document.createElement('div');
-        itemCard.className = 'history-card';
-        itemCard.innerHTML = `
-            <div class="history-info">
-                <i class="fa-solid fa-file-pdf pdf-red-icon"></i>
+        html += `
+            <div class="history-card">
                 <div>
-                    <h5>${item.name}</h5>
-                    <small>Opened on ${item.date}</small>
+                    <strong>${item.title}</strong><br>
+                    <small style="color:#7f8c8d;">Opened: ${item.date}</small>
                 </div>
-            </div>
-            <div class="history-actions">
-                <a href="${item.url}" target="_blank" class="btn-open-sm">Open</a>
-                <button onclick="deleteHistoryItem(${index})" class="btn-delete-sm">Delete</button>
-            </div>
-        `;
-        container.appendChild(itemCard);
+                <div>
+                    <a href="${item.url}" target="_blank" class="btn-open-sm">Open</a>
+                    <button class="btn-delete-sm" onclick="deleteHistoryItem(${index})"><i class="fa-solid fa-trash"></i></button>
+                </div>
+            </div>`;
     });
+    historyList.innerHTML = html;
 }
 
-// Function to delete an item from LocalStorage History
 function deleteHistoryItem(index) {
     let history = JSON.parse(localStorage.getItem('kpk_pdf_history')) || [];
     history.splice(index, 1);
     localStorage.setItem('kpk_pdf_history', JSON.stringify(history));
     loadHistory();
+}
+
+function filterBooks() {
+    let input = document.getElementById('searchInput').value.toLowerCase().trim();
+    
+    let subjectCards = document.querySelectorAll('#subjectGridCards .subject-card');
+    if (subjectCards.length > 0) {
+        subjectCards.forEach(card => {
+            let text = card.innerText.toLowerCase();
+            card.style.display = text.includes(input) ? "" : "none";
+        });
+        return;
+    }
+
+    let cards = document.querySelectorAll('.grid-card, .special-past-paper-card');
+    cards.forEach(card => {
+        let text = card.innerText.toLowerCase();
+        card.style.display = text.includes(input) ? "" : "none";
+    });
 }

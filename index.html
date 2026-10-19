@@ -3,223 +3,217 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KPK Study Hub - Textbooks & Solved Notes</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- Font Awesome Icons -->
+    <title>KPK Study Hub - Educational Portal</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="dark-theme">
 
-    <!-- Main Navigation Header -->
-    <header class="app-header">
-        <div class="logo-container">
-            <i class="fa-solid fa-graduation-cap logo-icon"></i>
-            <h2>KPK Study Hub</h2>
+    <!-- WELCOME SPLASH SCREEN -->
+    <div id="splashScreen" class="splash-screen">
+        <div class="splash-content">
+            <div class="splash-icon-wrapper">
+                <i class="fa-solid fa-graduation-cap splash-logo"></i>
+            </div>
+            <h1>KPK Study Hub</h1>
+            <div class="developer-badge">
+                <i class="fa-solid fa-code-branch"></i> Designed & Developed by <span>Faizan Ahmad</span>
+            </div>
+            <div class="loader-bar">
+                <div class="loader-progress"></div>
+            </div>
         </div>
-        <div class="header-actions">
-            <button class="nav-btn" title="My Downloads" onclick="showSection('downloads-section')">
+    </div>
+
+    <!-- CUSTOM ALERT MODAL -->
+    <div id="alertModal" class="custom-modal hidden-modal">
+        <div class="modal-card">
+            <div class="modal-icon-wrap info-icon-bg">
+                <i class="fa-solid fa-clock-rotate-left"></i>
+            </div>
+            <h3 id="alertTitle">Coming Soon!</h3>
+            <p id="alertMessage">This PDF resource is currently being prepared and will be uploaded shortly.</p>
+            <div class="modal-actions">
+                <button class="btn-confirm" onclick="closeAlertModal()">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header Navbar -->
+    <header class="navbar">
+        <div class="logo-container" onclick="showMainHome()">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <div class="logo-text">
+                <h2>KPK Study Hub</h2>
+                <span>By Faizan Ahmad</span>
+            </div>
+        </div>
+        <div class="nav-actions">
+            <button class="nav-btn" onclick="toggleAppTheme()" title="Toggle Day/Night Mode">
+                <i id="themeIcon" class="fa-solid fa-eye"></i>
+            </button>
+            <button class="nav-btn" onclick="showHistorySection()" title="Downloads & History">
                 <i class="fa-solid fa-download"></i>
             </button>
-            <button class="nav-btn" title="Menu" onclick="toggleMenu()">
+            <button class="nav-btn" onclick="toggleSidebarMenu()" title="Open Menu">
                 <i class="fa-solid fa-bars"></i>
             </button>
         </div>
     </header>
 
-    <!-- Search Bar -->
-    <div class="search-container">
-        <i class="fa-solid fa-magnifying-glass search-icon"></i>
-        <input type="text" id="searchInput" onkeyup="filterBooks()" placeholder="Search Class, Subject, Notes, Past Papers...">
+    <!-- FULL SCREEN SIDEBAR MENU OVERLAY -->
+    <div id="sidebarMenu" class="sidebar-menu-fullscreen hidden-menu">
+        <div class="fullscreen-menu-header">
+            <button class="menu-nav-home-btn" onclick="showMainHome(); toggleSidebarMenu();">
+                <i class="fa-solid fa-arrow-left"></i> Home
+            </button>
+            <h3 class="menu-center-title">Menu</h3>
+            <div style="width: 70px;"></div>
+        </div>
+        
+        <div class="fullscreen-menu-body">
+            <!-- Developer Branding Box -->
+            <div class="menu-card-box dev-profile-card">
+                <div class="dev-avatar">
+                    <i class="fa-solid fa-user-gear"></i>
+                </div>
+                <div class="dev-info">
+                    <span class="dev-role"><i class="fa-solid fa-code"></i> Lead Developer</span>
+                    <h2>Faizan Ahmad</h2>
+                    <p>KPK Study Hub Official Portal</p>
+                </div>
+            </div>
+
+            <!-- Contact Developer Section -->
+            <div class="menu-card-box">
+                <div class="menu-card-title"><i class="fa-brands fa-whatsapp text-success"></i> Contact with Developer</div>
+                <div class="menu-card-desc">Need assistance or want to suggest study material? Chat directly via WhatsApp.</div>
+                <a href="https://wa.me/923489573662?text=Assalam-o-Alaikum%20Faizan%20Ahmad!%20Mujhe%20KPK%20Study%20Hub%20app%20ke%20bare%20mein%20baat%20karni%20hai." target="_blank" class="wa-btn">
+                    <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp (03489573662)
+                </a>
+            </div>
+
+            <!-- App Options -->
+            <div class="menu-card-box">
+                <div class="menu-card-title"><i class="fa-solid fa-sliders"></i> App Options</div>
+                
+                <a href="mailto:faizanaahmad091@gmail.com?subject=Feedback%20for%20KPK%20Study%20Hub" class="menu-item-row">
+                    <div class="mi-icon email-bg"><i class="fa-solid fa-envelope"></i></div>
+                    <div class="mi-text">
+                        <strong>Send Direct Feedback</strong>
+                        <small>faizanaahmad091@gmail.com</small>
+                    </div>
+                    <i class="fa-solid fa-chevron-right arrow-icon"></i>
+                </a>
+
+                <div class="menu-item-row" onclick="alert('Thank you for rating KPK Study Hub 5 Stars!')">
+                    <div class="mi-icon rate-bg"><i class="fa-solid fa-star"></i></div>
+                    <div class="mi-text">
+                        <strong>Rate App (5 Stars)</strong>
+                        <small>Support our application</small>
+                    </div>
+                    <i class="fa-solid fa-chevron-right arrow-icon"></i>
+                </div>
+
+                <div class="menu-item-row" onclick="alert('Share KPK Study Hub link with your friends!')">
+                    <div class="mi-icon share-bg"><i class="fa-solid fa-share-nodes"></i></div>
+                    <div class="mi-text">
+                        <strong>Share App</strong>
+                        <small>Spread knowledge with others</small>
+                    </div>
+                    <i class="fa-solid fa-chevron-right arrow-icon"></i>
+                </div>
+            </div>
+
+            <!-- Legal & Information -->
+            <div class="menu-card-box">
+                <div class="menu-card-title"><i class="fa-solid fa-shield-halved"></i> Legal & Information</div>
+                <div class="menu-item-row" onclick="showCustomAlert('Privacy Policy', 'All textbooks and past papers are provided free of charge to help students across Khyber Pakhtunkhwa.')">
+                    <div class="mi-icon policy-bg"><i class="fa-solid fa-lock"></i></div>
+                    <div class="mi-text">
+                        <strong>Privacy Policy</strong>
+                        <small>Data protection guidelines</small>
+                    </div>
+                    <i class="fa-solid fa-chevron-right arrow-icon"></i>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <!-- Main Content Container -->
-    <main class="main-content">
+    <!-- MAIN APP CONTAINER -->
+    <div class="container">
+        
+        <!-- Search Box -->
+        <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="searchInput" oninput="filterBooks()" placeholder="Search Class, Subject, Past Papers...">
+        </div>
 
-        <!-- Books, Notes & Past Papers Section -->
-        <section id="books-section" class="active-section">
+        <!-- MAIN HOME SECTION -->
+        <div id="mainHomeSection" class="content-section">
             
-            <h3 class="section-title"><i class="fa-solid fa-book-open"></i> Class 9th Study Material</h3>
-            <div class="books-grid">
-                
-                <!-- Class 9th Biology -->
-                <div class="book-card">
-                    <div class="card-icon biology-bg">
-                        <i class="fa-solid fa-dna"></i>
-                    </div>
-                    <div class="card-info">
-                        <h4>Class 9th Biology</h4>
-                        <p>KPK Board Textbook PDF</p>
-                        <div class="card-actions">
-                            <a href="https://drive.google.com/file/d/1WHvEVI4JiDL6yj_tXZQzzcxQmMsZynyL/preview" 
-                               target="_blank" 
-                               class="btn-open" 
-                               onclick="saveToHistory('Class 9th Biology Book', 'https://drive.google.com/file/d/1WHvEVI4JiDL6yj_tXZQzzcxQmMsZynyL/preview')">
-                                <i class="fa-solid fa-file-pdf"></i> Open PDF
-                            </a>
-                        </div>
-                    </div>
+            <!-- SPECIAL CARD: All KPK Boards Past Papers -->
+            <div class="special-past-paper-card" onclick="showCategory('past_papers')">
+                <div class="spc-icon"><i class="fa-solid fa-file-shield"></i></div>
+                <div class="spc-info">
+                    <h3>All KPK Boards Past Papers</h3>
+                    <p>Class 9th, 10th, 1st Year & 2nd Year Solved Board Papers</p>
                 </div>
-
-                <!-- Class 9th Chemistry -->
-                <div class="book-card">
-                    <div class="card-icon chemistry-bg">
-                        <i class="fa-solid fa-flask"></i>
-                    </div>
-                    <div class="card-info">
-                        <h4>Class 9th Chemistry</h4>
-                        <p>KPK Board Textbook PDF</p>
-                        <div class="card-actions">
-                            <a href="https://drive.google.com/file/d/1WPzCc9Vq1ZgmsIfCZIMrw3BbDzSEKTFp/preview" 
-                               target="_blank" 
-                               class="btn-open" 
-                               onclick="saveToHistory('Class 9th Chemistry Book', 'https://drive.google.com/file/d/1WPzCc9Vq1ZgmsIfCZIMrw3BbDzSEKTFp/preview')">
-                                <i class="fa-solid fa-file-pdf"></i> Open PDF
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Class 9th Physics -->
-                <div class="book-card">
-                    <div class="card-icon physics-bg">
-                        <i class="fa-solid fa-atom"></i>
-                    </div>
-                    <div class="card-info">
-                        <h4>Class 9th Physics</h4>
-                        <p>KPK Board Solved Notes & Book</p>
-                        <div class="card-actions">
-                            <a href="https://drive.google.com/file/d/1WPzCc9Vq1ZgmsIfCZIMrw3BbDzSEKTFp/preview" 
-                               target="_blank" 
-                               class="btn-open" 
-                               onclick="saveToHistory('Class 9th Physics Book', 'https://drive.google.com/file/d/1WPzCc9Vq1ZgmsIfCZIMrw3BbDzSEKTFp/preview')">
-                                <i class="fa-solid fa-file-pdf"></i> Open PDF
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Class 9th Mathematics -->
-                <div class="book-card">
-                    <div class="card-icon math-bg">
-                        <i class="fa-solid fa-calculator"></i>
-                    </div>
-                    <div class="card-info">
-                        <h4>Class 9th Mathematics</h4>
-                        <p>KPK Board Textbook PDF</p>
-                        <div class="card-actions">
-                            <a href="https://drive.google.com/file/d/1WHvEVI4JiDL6yj_tXZQzzcxQmMsZynyL/preview" 
-                               target="_blank" 
-                               class="btn-open" 
-                               onclick="saveToHistory('Class 9th Mathematics Book', 'https://drive.google.com/file/d/1WHvEVI4JiDL6yj_tXZQzzcxQmMsZynyL/preview')">
-                                <i class="fa-solid fa-file-pdf"></i> Open PDF
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
+                <i class="fa-solid fa-arrow-right spc-arrow"></i>
             </div>
 
-            <!-- Class 10th Section -->
-            <h3 class="section-title mt-20"><i class="fa-solid fa-book-open"></i> Class 10th Study Material</h3>
-            <div class="books-grid">
-                
-                <div class="book-card">
-                    <div class="card-icon physics-bg">
-                        <i class="fa-solid fa-atom"></i>
-                    </div>
-                    <div class="card-info">
-                        <h4>Class 10th Physics</h4>
-                        <p>KPK Board Textbook & Notes</p>
-                        <div class="card-actions">
-                            <a href="https://drive.google.com/file/d/1WPzCc9Vq1ZgmsIfCZIMrw3BbDzSEKTFp/preview" 
-                               target="_blank" 
-                               class="btn-open" 
-                               onclick="saveToHistory('Class 10th Physics Book', 'https://drive.google.com/file/d/1WPzCc9Vq1ZgmsIfCZIMrw3BbDzSEKTFp/preview')">
-                                <i class="fa-solid fa-file-pdf"></i> Open PDF
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="book-card">
-                    <div class="card-icon chemistry-bg">
-                        <i class="fa-solid fa-flask"></i>
-                    </div>
-                    <div class="card-info">
-                        <h4>Class 10th Chemistry</h4>
-                        <p>KPK Board Solved Notes</p>
-                        <div class="card-actions">
-                            <a href="https://drive.google.com/file/d/1WHvEVI4JiDL6yj_tXZQzzcxQmMsZynyL/preview" 
-                               target="_blank" 
-                               class="btn-open" 
-                               onclick="saveToHistory('Class 10th Chemistry Book', 'https://drive.google.com/file/d/1WHvEVI4JiDL6yj_tXZQzzcxQmMsZynyL/preview')">
-                                <i class="fa-solid fa-file-pdf"></i> Open PDF
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
+            <div class="section-title">
+                <i class="fa-solid fa-layer-group"></i> KPK Classes & Guides (1st to 12th)
             </div>
 
-            <!-- Past Papers Section -->
-            <h3 class="section-title mt-20"><i class="fa-solid fa-paste"></i> All Classes Past Papers</h3>
-            <div class="books-grid">
-                
-                <div class="book-card">
-                    <div class="card-icon pastpaper-bg">
-                        <i class="fa-solid fa-file-lines"></i>
-                    </div>
-                    <div class="card-info">
-                        <h4>Class 9th All Past Papers</h4>
-                        <p>KPK Board 5-Year Solved Papers</p>
-                        <div class="card-actions">
-                            <a href="https://drive.google.com/file/d/1WHvEVI4JiDL6yj_tXZQzzcxQmMsZynyL/preview" 
-                               target="_blank" 
-                               class="btn-open" 
-                               onclick="saveToHistory('Class 9th Past Papers', 'https://drive.google.com/file/d/1WHvEVI4JiDL6yj_tXZQzzcxQmMsZynyL/preview')">
-                                <i class="fa-solid fa-file-pdf"></i> Open PDF
-                            </a>
-                        </div>
-                    </div>
-                </div>
+            <div class="category-grid">
+                <!-- Classes 1 to 8 -->
+                <div class="grid-card style-c1" onclick="showCategory('class1')"><div class="gc-top"><h3>1<sup>st</sup></h3><span>Class Books</span></div><div class="gc-bot">1st Class</div></div>
+                <div class="grid-card style-c2" onclick="showCategory('class2')"><div class="gc-top"><h3>2<sup>nd</sup></h3><span>Class Books</span></div><div class="gc-bot">2nd Class</div></div>
+                <div class="grid-card style-c3" onclick="showCategory('class3')"><div class="gc-top"><h3>3<sup>rd</sup></h3><span>Class Books</span></div><div class="gc-bot">3rd Class</div></div>
+                <div class="grid-card style-c4" onclick="showCategory('class4')"><div class="gc-top"><h3>4<sup>th</sup></h3><span>Class Books</span></div><div class="gc-bot">4th Class</div></div>
+                <div class="grid-card style-c5" onclick="showCategory('class5')"><div class="gc-top"><h3>5<sup>th</sup></h3><span>Class Books</span></div><div class="gc-bot">5th Class</div></div>
+                <div class="grid-card style-c6" onclick="showCategory('class6')"><div class="gc-top"><h3>6<sup>th</sup></h3><span>Class Books</span></div><div class="gc-bot">6th Class</div></div>
+                <div class="grid-card style-c7" onclick="showCategory('class7')"><div class="gc-top"><h3>7<sup>th</sup></h3><span>Class Books</span></div><div class="gc-bot">7th Class</div></div>
+                <div class="grid-card style-c8" onclick="showCategory('class8')"><div class="gc-top"><h3>8<sup>th</sup></h3><span>Class Books</span></div><div class="gc-bot">8th Class</div></div>
 
-                <div class="book-card">
-                    <div class="card-icon pastpaper-bg">
-                        <i class="fa-solid fa-file-lines"></i>
-                    </div>
-                    <div class="card-info">
-                        <h4>Class 10th All Past Papers</h4>
-                        <p>KPK Board 5-Year Solved Papers</p>
-                        <div class="card-actions">
-                            <a href="https://drive.google.com/file/d/1WPzCc9Vq1ZgmsIfCZIMrw3BbDzSEKTFp/preview" 
-                               target="_blank" 
-                               class="btn-open" 
-                               onclick="saveToHistory('Class 10th Past Papers', 'https://drive.google.com/file/d/1WPzCc9Vq1ZgmsIfCZIMrw3BbDzSEKTFp/preview')">
-                                <i class="fa-solid fa-file-pdf"></i> Open PDF
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                <!-- Classes 9th to 12th -->
+                <div class="grid-card style-c9" onclick="showCategory('class9_books')"><div class="gc-top"><h3>9<sup>th</sup></h3><span>Class Books</span></div><div class="gc-bot">9th Textbooks</div></div>
+                <div class="grid-card style-c9-notes" onclick="showCategory('class9_notes')"><div class="gc-top"><h3>9<sup>th</sup></h3><span>Class Notes</span></div><div class="gc-bot">9th Guides</div></div>
 
+                <div class="grid-card style-c10" onclick="showCategory('class10_books')"><div class="gc-top"><h3>10<sup>th</sup></h3><span>Class Books</span></div><div class="gc-bot">10th Textbooks</div></div>
+                <div class="grid-card style-c10-notes" onclick="showCategory('class10_notes')"><div class="gc-top"><h3>10<sup>th</sup></h3><span>Class Notes</span></div><div class="gc-bot">10th Guides</div></div>
+
+                <div class="grid-card style-c11" onclick="showCategory('class11_books')"><div class="gc-top"><h3>11<sup>th</sup></h3><span>1st Year Books</span></div><div class="gc-bot">1st Year Textbooks</div></div>
+                <div class="grid-card style-c11-notes" onclick="showCategory('class11_notes')"><div class="gc-top"><h3>11<sup>th</sup></h3><span>1st Year Notes</span></div><div class="gc-bot">1st Year Guides</div></div>
+
+                <div class="grid-card style-c12" onclick="showCategory('class12_books')"><div class="gc-top"><h3>12<sup>th</sup></h3><span>2nd Year Books</span></div><div class="gc-bot">2nd Year Textbooks</div></div>
+                <div class="grid-card style-c12-notes" onclick="showCategory('class12_notes')"><div class="gc-top"><h3>12<sup>th</sup></h3><span>2nd Year Notes</span></div><div class="gc-bot">2nd Year Guides</div></div>
             </div>
+        </div>
 
-        </section>
+        <!-- Dynamic Subject View Section Container -->
+        <div id="subjectViewContainer" class="content-section hidden-section">
+            <button class="back-btn" onclick="showMainHome()"><i class="fa-solid fa-arrow-left"></i> Back to Home</button>
+            <div id="subjectSectionTitle" class="section-title"><i class="fa-solid fa-book-open"></i> Subjects</div>
+            <div id="subjectGridCards" class="subject-grid-cards"></div>
+        </div>
 
-        <!-- My Downloaded / History Section -->
-        <section id="downloads-section" class="hidden-section">
-            <div class="section-header">
-                <button class="btn-back" onclick="showSection('books-section')">
-                    <i class="fa-solid fa-arrow-left"></i> Back
-                </button>
-                <h3 class="section-title">My Downloaded PDFs</h3>
-            </div>
-            
-            <div id="historyContainer" class="history-list">
-                <!-- LocalStorage data renders here via app.js -->
-            </div>
-        </section>
+        <!-- DOWNLOAD HISTORY SECTION -->
+        <div id="historySection" class="content-section hidden-section">
+            <button class="back-btn" onclick="showMainHome()"><i class="fa-solid fa-arrow-left"></i> Back to Home</button>
+            <div class="section-title"><i class="fa-solid fa-clock-rotate-left"></i> Opened & Downloaded PDFs</div>
+            <div id="historyList"></div>
+        </div>
 
-    </main>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="app-footer">
+        <p>KPK Study Hub &copy; 2026</p>
+        <p>Engineered & Designed by <strong>Faizan Ahmad</strong></p>
+    </footer>
 
     <script src="app.js"></script>
 </body>
