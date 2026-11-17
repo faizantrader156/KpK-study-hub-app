@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KPK Study Hub - Educational Portal</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body class="dark-theme">
 
     <!-- WELCOME SPLASH SCREEN -->
@@ -46,13 +49,9 @@
             <i class="fa-solid fa-graduation-cap"></i>
             <div class="logo-text">
                 <h2>KPK Study Hub</h2>
-                <span>By Faizan Ahmad</span>
             </div>
         </div>
         <div class="nav-actions">
-            <button class="nav-btn" onclick="toggleAppTheme()" title="Toggle Day/Night Mode">
-                <i id="themeIcon" class="fa-solid fa-eye"></i>
-            </button>
             <button class="nav-btn" onclick="showHistorySection()" title="Downloads & History">
                 <i class="fa-solid fa-download"></i>
             </button>
@@ -60,7 +59,7 @@
                 <i class="fa-solid fa-bars"></i>
             </button>
         </div>
-    </header>
+    </header> 
 
     <!-- FULL SCREEN SIDEBAR MENU OVERLAY -->
     <div id="sidebarMenu" class="sidebar-menu-fullscreen hidden-menu">
@@ -71,9 +70,10 @@
             <h3 class="menu-center-title">Menu</h3>
             <div style="width: 70px;"></div>
         </div>
-        
+
         <div class="fullscreen-menu-body">
-            <!-- Developer Branding Box -->
+
+            <!-- Developer Profile Box -->
             <div class="menu-card-box dev-profile-card">
                 <div class="dev-avatar">
                     <i class="fa-solid fa-user-gear"></i>
@@ -85,11 +85,12 @@
                 </div>
             </div>
 
-            <!-- Contact Developer Section -->
+            <!-- Contact with Developer -->
             <div class="menu-card-box">
                 <div class="menu-card-title"><i class="fa-brands fa-whatsapp text-success"></i> Contact with Developer</div>
                 <div class="menu-card-desc">Need assistance or want to suggest study material? Chat directly via WhatsApp.</div>
-                <a href="https://wa.me/923489573662?text=Assalam-o-Alaikum%20Faizan%20Ahmad!%20Mujhe%20KPK%20Study%20Hub%20app%20ke%20bare%20mein%20baat%20karni%20hai." target="_blank" class="wa-btn">
+                <a href="https://wa.me/923489573662?text=Assalam-o-Alaikum%20Faizan%20Ahmad!%20Mujhe%20KPK%20Study%20Hub%20app%20ke%20bare%20mein%20baat%20karni%20hai."
+                    target="_blank" class="wa-btn">
                     <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp (03489573662)
                 </a>
             </div>
@@ -98,7 +99,8 @@
             <div class="menu-card-box">
                 <div class="menu-card-title"><i class="fa-solid fa-sliders"></i> App Options</div>
                 
-                <a href="mailto:faizanaahmad091@gmail.com?subject=Feedback%20for%20KPK%20Study%20Hub" class="menu-item-row">
+                <a href="mailto:faizanaahmad091@gmail.com?subject=Feedback%20for%20KPK%20Study%20Hub"
+                    class="menu-item-row">
                     <div class="mi-icon email-bg"><i class="fa-solid fa-envelope"></i></div>
                     <div class="mi-text">
                         <strong>Send Direct Feedback</strong>
@@ -124,12 +126,29 @@
                     </div>
                     <i class="fa-solid fa-chevron-right arrow-icon"></i>
                 </div>
+
+                <!-- Theme / Eye Comfort Selector placed right below Share App -->
+                <div style="padding-top: 12px; margin-top: 8px; border-top: 1px solid #2a2a2a;">
+                    <div style="font-size: 0.88rem; font-weight: 600; color: #fff; margin-bottom: 8px; display: flex; align-items: center; gap: 8px;">
+                        <i class="fa-solid fa-palette" style="color: #f1c40f;"></i> App Themes & Eye Comfort
+                    </div>
+                    <div class="theme-palette-grid">
+                        <button class="theme-pill dark-pill" onclick="setAppTheme('dark-theme')"><i class="fa-solid fa-moon"></i> Dark Pitch</button>
+                        <button class="theme-pill light-pill" onclick="setAppTheme('light-theme')"><i class="fa-solid fa-sun"></i> Clean White</button>
+                        <button class="theme-pill emerald-pill" onclick="setAppTheme('emerald-theme')"><i class="fa-solid fa-leaf"></i> Emerald Green</button>
+                        <button class="theme-pill blue-pill" onclick="setAppTheme('blue-theme')"><i class="fa-solid fa-water"></i> Royal Blue</button>
+                        <button class="theme-pill purple-pill" onclick="setAppTheme('purple-theme')"><i class="fa-solid fa-wand-magic-sparkles"></i> Deep Purple</button>
+                        <button class="theme-pill orange-pill" onclick="setAppTheme('orange-theme')"><i class="fa-solid fa-fire"></i> Sunset Orange</button>
+                        <button class="theme-pill ruby-pill" onclick="setAppTheme('ruby-theme')"><i class="fa-solid fa-gem"></i> Midnight Ruby</button>
+                    </div>
+                </div>
             </div>
 
             <!-- Legal & Information -->
             <div class="menu-card-box">
                 <div class="menu-card-title"><i class="fa-solid fa-shield-halved"></i> Legal & Information</div>
-                <div class="menu-item-row" onclick="showCustomAlert('Privacy Policy', 'All textbooks and past papers are provided free of charge to help students across Khyber Pakhtunkhwa.')">
+                <div class="menu-item-row"
+                    onclick="showCustomAlert('Privacy Policy', 'All textbooks and past papers are provided free of charge to help students across Khyber Pakhtunkhwa.')">
                     <div class="mi-icon policy-bg"><i class="fa-solid fa-lock"></i></div>
                     <div class="mi-text">
                         <strong>Privacy Policy</strong>
@@ -138,21 +157,32 @@
                     <i class="fa-solid fa-chevron-right arrow-icon"></i>
                 </div>
             </div>
+
         </div>
     </div>
 
     <!-- MAIN APP CONTAINER -->
     <div class="container">
-        
+
         <!-- Search Box -->
         <div class="search-box">
             <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" id="searchInput" oninput="filterBooks()" placeholder="Search Class, Subject, Past Papers...">
+            <input type="text" id="searchInput" oninput="filterBooks()"
+                placeholder="Search Class, Subject, Past Papers...">
         </div>
 
         <!-- MAIN HOME SECTION -->
         <div id="mainHomeSection" class="content-section">
-            
+
+            <!-- 3D Professional Animated Board Results Card -->
+            <div onclick="showCategory('board_results')" style="background: linear-gradient(135deg, #ff4757, #ff6b81); color: white; border-radius: 14px; padding: 16px 20px; display: flex; align-items: center; gap: 16px; cursor: pointer; box-shadow: 0 10px 25px rgba(255, 71, 87, 0.4), inset 0 1px 3px rgba(255,255,255,0.4); transform: perspective(1000px) translateZ(0); transition: transform 0.2s ease, box-shadow 0.2s ease; margin-bottom: 14px;" onmouseover="this.style.transform='translateY(-3px) scale(1.01)'; this.style.boxShadow='0 15px 30px rgba(255, 71, 87, 0.5)';" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 10px 25px rgba(255, 71, 87, 0.4)';">
+                <div style="font-size: 32px; background: rgba(255,255,255,0.2); width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; border-radius: 10px; flex-shrink: 0;"><i class="fa-solid fa-award"></i></div>
+                <div style="flex: 1;">
+                    <h3 style="margin: 0 0 3px 0; font-size: 17px; font-weight: 700; letter-spacing: 0.3px;">Official Board Results Archive</h3>
+                </div>
+                <i class="fa-solid fa-chevron-right" style="font-size: 14px; opacity: 0.8;"></i>
+            </div>
+
             <!-- SPECIAL CARD: All KPK Boards Past Papers -->
             <div class="special-past-paper-card" onclick="showCategory('past_papers')">
                 <div class="spc-icon"><i class="fa-solid fa-file-shield"></i></div>
@@ -168,46 +198,100 @@
             </div>
 
             <div class="category-grid">
-                <!-- Classes 1 to 8 -->
-                <div class="grid-card style-c1" onclick="showCategory('class1')"><div class="gc-top"><h3>1<sup>st</sup></h3><span>Class Books</span></div><div class="gc-bot">1st Class</div></div>
-                <div class="grid-card style-c2" onclick="showCategory('class2')"><div class="gc-top"><h3>2<sup>nd</sup></h3><span>Class Books</span></div><div class="gc-bot">2nd Class</div></div>
-                <div class="grid-card style-c3" onclick="showCategory('class3')"><div class="gc-top"><h3>3<sup>rd</sup></h3><span>Class Books</span></div><div class="gc-bot">3rd Class</div></div>
-                <div class="grid-card style-c4" onclick="showCategory('class4')"><div class="gc-top"><h3>4<sup>th</sup></h3><span>Class Books</span></div><div class="gc-bot">4th Class</div></div>
-                <div class="grid-card style-c5" onclick="showCategory('class5')"><div class="gc-top"><h3>5<sup>th</sup></h3><span>Class Books</span></div><div class="gc-bot">5th Class</div></div>
-                <div class="grid-card style-c6" onclick="showCategory('class6')"><div class="gc-top"><h3>6<sup>th</sup></h3><span>Class Books</span></div><div class="gc-bot">6th Class</div></div>
-                <div class="grid-card style-c7" onclick="showCategory('class7')"><div class="gc-top"><h3>7<sup>th</sup></h3><span>Class Books</span></div><div class="gc-bot">7th Class</div></div>
-                <div class="grid-card style-c8" onclick="showCategory('class8')"><div class="gc-top"><h3>8<sup>th</sup></h3><span>Class Books</span></div><div class="gc-bot">8th Class</div></div>
+                <div class="grid-card style-c1" onclick="showCategory('class1')">
+                    <div class="gc-top"><h3>1<sup>st</sup></h3><span>Class Books</span></div>
+                    <div class="gc-bot">1st Class</div>
+                </div>
+                <div class="grid-card style-c2" onclick="showCategory('class2')">
+                    <div class="gc-top"><h3>2<sup>nd</sup></h3><span>Class Books</span></div>
+                    <div class="gc-bot">2nd Class</div>
+                </div>
+                <div class="grid-card style-c3" onclick="showCategory('class3')">
+                    <div class="gc-top"><h3>3<sup>rd</sup></h3><span>Class Books</span></div>
+                    <div class="gc-bot">3rd Class</div>
+                </div>
+                <div class="grid-card style-c4" onclick="showCategory('class4')">
+                    <div class="gc-top"><h3>4<sup>th</sup></h3><span>Class Books</span></div>
+                    <div class="gc-bot">4th Class</div>
+                </div>
+                <div class="grid-card style-c5" onclick="showCategory('class5')">
+                    <div class="gc-top"><h3>5<sup>th</sup></h3><span>Class Books</span></div>
+                    <div class="gc-bot">5th Class</div>
+                </div>
+                <div class="grid-card style-c6" onclick="showCategory('class6')">
+                    <div class="gc-top"><h3>6<sup>th</sup></h3><span>Class Books</span></div>
+                    <div class="gc-bot">6th Class</div>
+                </div>
+                <div class="grid-card style-c7" onclick="showCategory('class7')">
+                    <div class="gc-top"><h3>7<sup>th</sup></h3><span>Class Books</span></div>
+                    <div class="gc-bot">7th Class</div>
+                </div>
+                <div class="grid-card style-c8" onclick="showCategory('class8')">
+                    <div class="gc-top"><h3>8<sup>th</sup></h3><span>Class Books</span></div>
+                    <div class="gc-bot">8th Class</div>
+                </div>
 
-                <!-- Classes 9th to 12th -->
-                <div class="grid-card style-c9" onclick="showCategory('class9_books')"><div class="gc-top"><h3>9<sup>th</sup></h3><span>Class Books</span></div><div class="gc-bot">9th Textbooks</div></div>
-                <div class="grid-card style-c9-notes" onclick="showCategory('class9_notes')"><div class="gc-top"><h3>9<sup>th</sup></h3><span>Class Notes</span></div><div class="gc-bot">9th Guides</div></div>
+                <div class="grid-card style-c9" onclick="showCategory('class9_books')">
+                    <div class="gc-top"><h3>9<sup>th</sup></h3><span>Class Books</span></div>
+                    <div class="gc-bot">9th Textbooks</div>
+                </div>
+                <div class="grid-card style-c9-notes" onclick="showCategory('class9_notes')">
+                    <div class="gc-top"><h3>9<sup>th</sup></h3><span>Class Notes</span></div>
+                    <div class="gc-bot">9th Guides</div>
+                </div>
 
-                <div class="grid-card style-c10" onclick="showCategory('class10_books')"><div class="gc-top"><h3>10<sup>th</sup></h3><span>Class Books</span></div><div class="gc-bot">10th Textbooks</div></div>
-                <div class="grid-card style-c10-notes" onclick="showCategory('class10_notes')"><div class="gc-top"><h3>10<sup>th</sup></h3><span>Class Notes</span></div><div class="gc-bot">10th Guides</div></div>
+                <div class="grid-card style-c10" onclick="showCategory('class10_books')">
+                    <div class="gc-top"><h3>10<sup>th</sup></h3><span>Class Books</span></div>
+                    <div class="gc-bot">10th Textbooks</div>
+                </div>
+                <div class="grid-card style-c10-notes" onclick="showCategory('class10_notes')">
+                    <div class="gc-top"><h3>10<sup>th</sup></h3><span>Class Notes</span></div>
+                    <div class="gc-bot">10th Guides</div>
+                </div>
 
-                <div class="grid-card style-c11" onclick="showCategory('class11_books')"><div class="gc-top"><h3>11<sup>th</sup></h3><span>1st Year Books</span></div><div class="gc-bot">1st Year Textbooks</div></div>
-                <div class="grid-card style-c11-notes" onclick="showCategory('class11_notes')"><div class="gc-top"><h3>11<sup>th</sup></h3><span>1st Year Notes</span></div><div class="gc-bot">1st Year Guides</div></div>
+                <div class="grid-card style-c11" onclick="showCategory('class11_books')">
+                    <div class="gc-top"><h3>11<sup>th</sup></h3><span>1st Year Books</span></div>
+                    <div class="gc-bot">1st Year Textbooks</div>
+                </div>
+                <div class="grid-card style-c11-notes" onclick="showCategory('class11_notes')">
+                    <div class="gc-top"><h3>11<sup>th</sup></h3><span>1st Year Notes</span></div>
+                    <div class="gc-bot">1st Year Guides</div>
+                </div>
 
-                <div class="grid-card style-c12" onclick="showCategory('class12_books')"><div class="gc-top"><h3>12<sup>th</sup></h3><span>2nd Year Books</span></div><div class="gc-bot">2nd Year Textbooks</div></div>
-                <div class="grid-card style-c12-notes" onclick="showCategory('class12_notes')"><div class="gc-top"><h3>12<sup>th</sup></h3><span>2nd Year Notes</span></div><div class="gc-bot">2nd Year Guides</div></div>
+                <div class="grid-card style-c12" onclick="showCategory('class12_books')">
+                    <div class="gc-top"><h3>12<sup>th</sup></h3><span>2nd Year Books</span></div>
+                    <div class="gc-bot">2nd Year Textbooks</div>
+                </div>
+                <div class="grid-card style-c12-notes" onclick="showCategory('class12_notes')">
+                    <div class="gc-top"><h3>12<sup>th</sup></h3><span>2nd Year Notes</span></div>
+                    <div class="gc-bot">2nd Year Guides</div>
+                </div>
             </div>
         </div>
 
         <!-- Dynamic Subject View Section Container -->
         <div id="subjectViewContainer" class="content-section hidden-section">
-            <button class="back-btn" onclick="showMainHome()"><i class="fa-solid fa-arrow-left"></i> Back to Home</button>
-            <div id="subjectSectionTitle" class="section-title"><i class="fa-solid fa-book-open"></i> Subjects</div>
+            <div class="subject-header-bar">
+                <button class="icon-back-btn" onclick="showMainHome()" title="Back to Home">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </button>
+                <div id="subjectSectionTitle" class="subject-header-title">Subjects</div>
+            </div>
             <div id="subjectGridCards" class="subject-grid-cards"></div>
         </div>
 
         <!-- DOWNLOAD HISTORY SECTION -->
         <div id="historySection" class="content-section hidden-section">
-            <button class="back-btn" onclick="showMainHome()"><i class="fa-solid fa-arrow-left"></i> Back to Home</button>
-            <div class="section-title"><i class="fa-solid fa-clock-rotate-left"></i> Opened & Downloaded PDFs</div>
+            <div class="subject-header-bar">
+                <button class="icon-back-btn" onclick="showMainHome()" title="Back to Home">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </button>
+                <div class="subject-header-title"><i class="fa-solid fa-clock-rotate-left"></i> Opened & Downloaded PDFs</div>
+            </div>
             <div id="historyList"></div>
         </div>
 
-    </div>
+    </div> 
 
     <!-- FOOTER -->
     <footer class="app-footer">
@@ -217,4 +301,5 @@
 
     <script src="app.js"></script>
 </body>
+
 </html>
